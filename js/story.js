@@ -9,7 +9,7 @@ var selectedData = [];
 
 function init() { 
   if (viewportWidth<500){
-    imgHeight = viewportHeight*0.6;
+    imgHeight = viewportHeight*0.55;
   } else {
     imgHeight = viewportHeight*0.7;
   }
@@ -18,6 +18,7 @@ function init() {
   selectedData = dataset[person];
   $('.panel').css("height",viewportHeight + "px");
   $('.scImg').css("height",imgHeight + "px");
+  $('.scImg').css('background-image','url('+ selectedData[0].img +')');
   $('#scText-scenario-0').html(selectedData[0].text);
   $('#scOption-scenario-0').append('<button type="button" class="btn btn-light btn-sm btnOpt" data-id="'+ selectedData[0].target0 +'">'+ selectedData[0].opt0 +'</button>');
   $('#scenario-0').fadeIn(500); 
@@ -76,7 +77,9 @@ function makeSc(btnTitle, scLast) {
     });
   }
   if(scData[0].opt0 == "The end"){
-    $('#scOption-' + btnTitle).html('<h6 class="text-center">'+ scData[0].opt0 +'</h6><div class="row"><div class="col"><button type="button" class="btn btn-light btn-sm btnOpt" id="btnReplay" onClick="window.location.reload()">Replay this character</button></div><div class="col"><a href="index.html" target="_blank"><button type="button" class="btn btn-light btn-sm btnOpt" id="btnOther">Play other characters</button></a></div></div>')
+    $('#scOption-' + btnTitle).html('<div class="row"><div class="col"><button type="button" class="btn btn-light btn-sm btnOpt" id="btnReplay" onClick="window.location.reload()">Replay this character</button></div><div class="col"><a href="index.html" target="_blank"><button type="button" class="btn btn-light btn-sm btnOpt" id="btnOther">Play other characters</button></a></div></div>')
+    setTimeout(function() 
+      {$('.theEnd').fadeIn(1000);}, 1000);
   }
 }
 

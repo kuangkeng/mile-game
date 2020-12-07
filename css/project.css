@@ -10,7 +10,7 @@ body, html {background:#000; -ms-scrollbar-base-color: #ffffff; scrollbar-face-c
 }
 
 .scImg {
-     background-image: url("../img/story-0/1.png");
+     background-image: url("");
      background-size: cover;
      background-position: center center;
      position: relative;
@@ -21,6 +21,14 @@ body, html {background:#000; -ms-scrollbar-base-color: #ffffff; scrollbar-face-c
      -webkit-background-size:cover;
      -moz-background-size:cover;
      -o-background-size:cover;
+}
+.theEnd {
+     position: absolute;
+     bottom:0px;
+     right:0px;
+     background: rgba(0,0,0,0.3);
+     color:#fbcd57;
+     display: none;
 }
 .scenarioBox {
      position: absolute;
