@@ -4,13 +4,13 @@ body, html {-ms-scrollbar-base-color: #ffffff; scrollbar-face-color: #ffffff;}
 
 .container {
      max-width: 800px;
-     background-image: url("/img/story-0/background.png");
+     background-image: url("../img/story-0/background.png");
      background-size: cover;
      background-position: center;
 }
 
 .scImg {
-     background-image: url("/img/story-0/1.png");
+     background-image: url("../img/story-0/1.png");
      background-size: cover;
      background-position: center center;
      position: absolute;
