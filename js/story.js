@@ -1,18 +1,26 @@
 var person,
     btnTitle,
+    viewportWidth = $(window).width(),
     viewportHeight = $(window).height(),
-    panelHeight = viewportHeight; //minus navbar
+    scHeight = imgHeight + 60,
+    imgHeight;
+    
 var selectedData = [];
 
 function init() { 
+  if (viewportWidth<500){
+    imgHeight = viewportHeight*0.6;
+  } else {
+    imgHeight = viewportHeight*0.7;
+  }
   getUrl();
   console.log("person = " + person);
   selectedData = dataset[person];
-  $('.panel').css("height",panelHeight + "px");
-  // $('.scImg').attr('src',selectedData[0].img);
+  $('.panel').css("height",viewportHeight + "px");
+  $('.scImg').css("height",imgHeight + "px");
   $('#scText-scenario-0').html(selectedData[0].text);
   $('#scOption-scenario-0').append('<button type="button" class="btn btn-light btn-sm btnOpt" data-id="'+ selectedData[0].target0 +'">'+ selectedData[0].opt0 +'</button>');
-  $('#panel-scenario, #scenario-0').fadeIn(500); 
+  $('#scenario-0').fadeIn(500); 
   
   $(document).on('click', '.btnOpt', function(){
     $(window).scrollTop(0); 
@@ -24,7 +32,7 @@ function init() {
 
   $('.btnLinkOut').click(function () {
     var url = "google.com";
-    if($(window).width()<500){
+    if(viewportWidth<500){
       var win = window.open(url, '_self');  
     } else {var win = window.open(url, '_blank'); console.log("url = " + url);}
     win.focus();
@@ -48,7 +56,7 @@ function makeSc(btnTitle, scLast) {
   // console.log("scData = " + JSON.stringify(scData));
   // console.log("scData.img = " + scData[0].img);
   //populate the scenario panel
-  $('#panel-scenario').append('<div class="scenario" id="'+ btnTitle +'"></div>');
+  $('.scenarioBox').append('<div class="scenario" id="'+ btnTitle +'"></div>');
   $('#' + btnTitle).html('<div class="scText" id="scText-'+ btnTitle +'">' + scData[0].text + '</div><div class="scOption text-center" id="scOption-'+ btnTitle +'"></div>');
   
   //populate the button or ending text

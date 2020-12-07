@@ -1,5 +1,5 @@
 /*to hide the scrollbar for menu*/
-body, html {-ms-scrollbar-base-color: #ffffff; scrollbar-face-color: #ffffff;}
+body, html {background:#000; -ms-scrollbar-base-color: #ffffff; scrollbar-face-color: #ffffff;}
 .panel::-webkit-scrollbar { display: none; }
 
 .container {
@@ -13,30 +13,22 @@ body, html {-ms-scrollbar-base-color: #ffffff; scrollbar-face-color: #ffffff;}
      background-image: url("../img/story-0/1.png");
      background-size: cover;
      background-position: center center;
-     position: absolute;
-     top:50px;
+     position: relative;
      height:300px;
-     width:100%;
+     width:80%;
+     margin: 0 auto;
      background-repeat:no-repeat;
      -webkit-background-size:cover;
      -moz-background-size:cover;
      -o-background-size:cover;
 }
-
-/* .scImg {
-     max-height:350px;
-     max-width: 100%;
-     min-width: 230px;
-     margin-bottom:10px;
-     margin-top:10px;
-} */
-
-.scenario {
+.scenarioBox {
      position: absolute;
-     top:355px;
+     bottom:20px;
+}
+.scenario {
      display:none;
 }
-
 
 .panel {
      color:#ffffff;
@@ -191,6 +183,7 @@ ul.rig.columns-4 li {
 }
 
 @media (max-width: 500px ) { 
+     .container {max-width: 500px;}
      h2 {font-size: 28px; margin-top: 15px;}
      .mugshot {width:140px;}  
      .byline {font-size: 0.8em; line-height: 1.1em; margin: 20px 0px;}
@@ -198,5 +191,8 @@ ul.rig.columns-4 li {
           font-size: 0.9em;
           line-height: 1.3em;
      }
-     .scImg {max-height:300px;}
 }
+
+@media only screen and (orientation: portrait) {
+     .scImg {width: 100%;}
+   }
