@@ -23,12 +23,38 @@ body, html {background:#000; -ms-scrollbar-base-color: #ffffff; scrollbar-face-c
      -o-background-size:cover;
 }
 .theEnd {
-     position: absolute;
-     bottom:0px;
-     right:0px;
      background: rgba(0,0,0,0.3);
-     color:#fbcd57;
-     display: none;
+     color:#fff;
+}
+.theEndBox {
+     opacity:0;
+}
+.downArrow {
+     animation: blinker 2s linear infinite;
+   }   
+@keyframes blinker {
+     50% {
+       opacity: 0;
+     }
+   }
+.info-background {
+     position: absolute;
+     top:0px;
+     left:0px;
+     width: 100%;
+     height:100%;
+     background: rgba(0,0,0,0.4);
+     display:none;
+}
+.info-box {
+     color:#212529;
+     background:#fbcd57;
+     z-index: 5;
+     position: absolute;
+     bottom:10px;
+     left: 50%;
+     transform: translate(-50%);
+     display:none;
 }
 .scenarioBox {
      position: absolute;
@@ -37,7 +63,6 @@ body, html {background:#000; -ms-scrollbar-base-color: #ffffff; scrollbar-face-c
 .scenario {
      display:none;
 }
-
 .panel {
      color:#ffffff;
      position: relative;
@@ -46,6 +71,19 @@ body, html {background:#000; -ms-scrollbar-base-color: #ffffff; scrollbar-face-c
      max-width: 800px;
      -webkit-overflow-scrolling: touch;
      -webkit-box-shadow: 0 0px 0px rgba(0,0,0,0);
+}
+
+.story-links a {
+     color:#007bff;
+     text-decoration: underline;
+}
+
+.endPanel {
+     display: none;
+}
+
+.share-icons {
+     font-size: 3em;
 }
 
 .mugshotBox {
@@ -65,9 +103,7 @@ body, html {background:#000; -ms-scrollbar-base-color: #ffffff; scrollbar-face-c
      font-size: 16px; margin: 20px 0px;
 }
 
-.storyLinks {
-     margin:50px 0px;
-}
+
 
 .relatedStories {
      margin-top: 30px;
@@ -192,6 +228,7 @@ ul.rig.columns-4 li {
 
 @media (max-width: 500px ) { 
      .container {max-width: 500px;}
+     .btnOpt {width: 100%;}
      h2 {font-size: 28px; margin-top: 15px;}
      .mugshot {width:140px;}  
      .byline {font-size: 0.8em; line-height: 1.1em; margin: 20px 0px;}

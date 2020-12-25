@@ -38,6 +38,14 @@ function init() {
     } else {var win = window.open(url, '_blank'); console.log("url = " + url);}
     win.focus();
   });
+
+  $(document).on('click', '.btnMore', function(){
+    $('.info-background, .info-box').fadeIn(100);
+  });
+  $(document).on('click', '.btnClose', function(){
+    $('.info-background, .info-box').fadeOut(100);
+  });
+
 }
 
 $(document).ready(function(){
@@ -58,29 +66,56 @@ function makeSc(btnTitle, scLast) {
   // console.log("scData.img = " + scData[0].img);
   //populate the scenario panel
   $('.scenarioBox').append('<div class="scenario" id="'+ btnTitle +'"></div>');
-  $('#' + btnTitle).html('<div class="scText" id="scText-'+ btnTitle +'">' + scData[0].text + '</div><div class="scOption text-center" id="scOption-'+ btnTitle +'"></div>');
+  $('#' + btnTitle).html('<div class="scText" id="scText-'+ btnTitle +'">' + scData[0].text + '</div><div class="mb-1 scMore text-right" id="scMore-'+ btnTitle +'"></div><div class="scOption text-center" id="scOption-'+ btnTitle +'"></div>');
   
-  //populate the button or ending text
-  if(scData[0].optNum == 0) {
-    $('#scOption-' + btnTitle).append('<button type="button" class="btn btn-light btn-sm btnOpt" data-id="'+ scData[0].target0 +'">'+ scData[0].opt0 +'</button>');
-  } else {
-    $('#scOption-' + btnTitle).append('<div class="row"><div class="col"><button type="button" class="btn btn-light btn-sm btnOpt" data-id="'+ scData[0].target0 +'">'+ scData[0].opt0 +'</button></div><div class="col"><button type="button" class="btn btn-light btn-sm btnOpt" data-id="'+ scData[0].target1 +'">'+ scData[0].opt1 +'</button></div></div>');
+  //populate the button
+  function makeBtn() {
+    if(scData[0].optNum == 0) {
+      $('#scOption-' + btnTitle).append('<button type="button" class="btn btn-light btn-sm btnOpt" data-id="'+ scData[0].target0 +'">'+ scData[0].opt0 +'</button>');
+    } else {
+      $('#scOption-' + btnTitle).append('<div class="row"><div class="col"><button type="button" class="btn btn-light btn-sm btnOpt" data-id="'+ scData[0].target0 +'">'+ scData[0].opt0 +'</button></div><div class="col"><button type="button" class="btn btn-light btn-sm btnOpt" data-id="'+ scData[0].target1 +'">'+ scData[0].opt1 +'</button></div></div>');
+    }
   }
-  $('#' + scLast).fadeOut(500, function (){ 
-    $('#' + btnTitle).fadeIn(500);
-  });
+
+  //fade-out current scenario and fade-in next scenario
+  function changeSc() {
+    $('#' + scLast).fadeOut(500, function (){ 
+      $('#' + btnTitle).fadeIn(500);
+    });
+  }
+
+  //populate the ending content
+  if(scData[0].opt0 == "The end"){
+    $('#' + scLast).fadeOut(500, function (){ 
+      $('.scenarioBox').append('<div class="theEndBox"><div class="theEnd rounded h5 text-center p-2 mb-0"><span class="text-center downArrow"><i class="fas fa-chevron-down"></i></span>&nbsp;&nbsp;&nbsp;THE END&nbsp;&nbsp;&nbsp;<span class="text-center downArrow"><i class="fas fa-chevron-down"></i></span></div></div>');
+      $('#' + btnTitle).fadeIn(500);
+    });
+    $('.box-lesson').html(scData[0].endMsg);
+    setTimeout(function() 
+      {
+        $('.btnOpt').css('display','none');
+        $('.theEndBox').animate({opacity: 1}, 1000);
+        $('.endPanel').fadeIn(1000);
+      }, 1000);
+  } else {
+    //if not the ending scenario, populate the button and change the scenario
+    makeBtn(); 
+    changeSc()
+  }
+
+  //populate the image
   if(scData[0].optImg == 1) {
     $('.scImg').fadeOut(500, function (){ 
-      // $(".scImg").attr('src', scData[0].img);
       $(".scImg").css('background-image','url('+ scData[0].img +')');
       $('.scImg').fadeIn(500);
     });
   }
-  if(scData[0].opt0 == "The end"){
-    $('#scOption-' + btnTitle).html('<div class="row"><div class="col"><button type="button" class="btn btn-light btn-sm btnOpt" id="btnReplay" onClick="window.location.reload()">Replay this character</button></div><div class="col"><a href="index.html" target="_blank"><button type="button" class="btn btn-light btn-sm btnOpt" id="btnOther">Play other characters</button></a></div></div>')
-    setTimeout(function() 
-      {$('.theEnd').fadeIn(1000);}, 1000);
-  }
+
+  //populate the info box
+  if(scData[0].more == 1) {
+    $('#scMore-' + btnTitle).append('<button type="button" class="btn btn-danger btn-sm btnMore" id="info-'+ btnTitle +'"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> Learn more</button>');
+    $('.card-text').html(scData[0].info);
+  } 
 }
 
 //Function to get journey num from url
