@@ -58,12 +58,6 @@ function makeSc(btnTitle, scLast) {
   var scData = jQuery.grep(selectedData, function (n, i) {
     return (n.id ==  btnTitle);
   },false);
-  var endData = jQuery.grep(selectedData, function (n, i) {
-    return (n.id ==  "scenario-end");
-  },false);
-  // console.log("selectedData = " + JSON.stringify(selectedData));
-  // console.log("scData = " + JSON.stringify(scData));
-  // console.log("scData.img = " + scData[0].img);
   //populate the scenario panel
   $('.scenarioBox').append('<div class="scenario" id="'+ btnTitle +'"></div>');
   $('#' + btnTitle).html('<div class="scText" id="scText-'+ btnTitle +'">' + scData[0].text + '</div><div class="mb-1 scMore text-right" id="scMore-'+ btnTitle +'"></div><div class="scOption text-center" id="scOption-'+ btnTitle +'"></div>');
@@ -86,11 +80,19 @@ function makeSc(btnTitle, scLast) {
 
   //populate the ending content
   if(scData[0].opt0 == "The end"){
+    var endData = jQuery.grep(selectedData, function (n, i) {
+      return (n.id ==  "scenario-end");
+    },false);
+    var endLinks = endData[0].endLinks;
+    var i;
+    for (i = 0; i < endLinks.length; i++) {
+      $('.list-links').append('<li class="list-group-item story-links">'+ endLinks[i] +'</li>');  
+    }
     $('#' + scLast).fadeOut(500, function (){ 
       $('.scenarioBox').append('<div class="theEndBox"><div class="theEnd rounded h5 text-center p-2 mb-0"><span class="text-center downArrow"><i class="fas fa-chevron-down"></i></span>&nbsp;&nbsp;&nbsp;THE END&nbsp;&nbsp;&nbsp;<span class="text-center downArrow"><i class="fas fa-chevron-down"></i></span></div></div>');
       $('#' + btnTitle).fadeIn(500);
     });
-    $('.box-lesson').html(scData[0].endMsg);
+    $('.box-lesson').html(endData[0].text);
     setTimeout(function() 
       {
         $('.btnOpt').css('display','none');

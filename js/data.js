@@ -343,7 +343,10 @@ var dataset = [
 			"optImg":0,
 			"opt0":"The end",
 			"target0":"scenario-end",
-			"endMsg":"<p>How much more information do you receive in a day compared to 10 years ago? 10 times, 100 times or maybe more?</p><p>In this era of information overload, finding information and critically evaluating its quality has become a basic skill for everyone. We use information to make decisions in our personal and professional life. During a global crisis like the Covid-19 pandemic, accurate information could help save or kill lives. Unfortunately, a huge amount of false and misleading information (also known as misinformation) is being created and spread by people both intentionally and unintentionally. Play the other 2 characters to learn more about misinformation from their perspectives.</p>",
+		},
+		{
+			"id":"scenario-end",
+			"text":"<p>How much more information do you receive in a day compared to 10 years ago? 10 times, 100 times or maybe more?</p><p>In this era of information overload, finding information and critically evaluating its quality has become a basic skill for everyone. We use information to make decisions in our personal and professional life. During a global crisis like the Covid-19 pandemic, accurate information could help save or kill lives. Unfortunately, a huge amount of false and misleading information (also known as misinformation) is being created and spread by people both intentionally and unintentionally. Play the other 2 characters to learn more about misinformation from their perspectives.</p>",
 			"endLinks":[
 				"<a href='https://www.vox.com/recode/2020/4/17/21221692/digital-black-market-covid-19-coronavirus-instagram-twitter-ebay' target=_blank>Coronavirus scammers are flooding social media with fake cures and tests</a>",
 				"<a href='https://www.aljazeera.com/news/2020/4/27/iran-over-700-dead-after-drinking-alcohol-to-cure-coronavirus' target=_blank>Iran: Over 700 dead after drinking alcohol to cure coronavirus</a>",
@@ -354,7 +357,7 @@ var dataset = [
 				"<a href='https://hongkongfp.com/2020/03/13/complete-scam-anti-virus-shut-necklaces-sold-across-hong-kong-despite-bans-around-asia/' target=_blank>‘Complete scam’: Anti-virus ‘Shut Out’ necklaces sold across Hong Kong despite bans around Asia</a>",
 				"<a href='https://www.buzzfeednews.com/article/craigsilverman/facebook-mask-ads-ban-zestads-coronavirus' target=_blank>Facebook Banned Mask Ads. They're Still Running.</a>",
 			]
-		},
+		}
 	],
 	[
 		{
@@ -718,6 +721,16 @@ var dataset = [
 			"opt0":"This is not good",
 			"target0":"scenario-A1-1-2_1",
 		},
+		{
+			"id":"scenario-end",
+			"text":"<p>Never share any information you’re not 100% sure is factual, no matter where you got it from and how credible it seems. Sharing false or misleading information is not only illegal but puts other people’s lives and/or livelihood at risk. Your good intention might cause bad results. Always verify the information before sharing it as there’s a huge amount of false and misleading information (also known as misinformation or disinformation) is being created and spread by people with ulterior motives. Play the other 2 characters to learn more about misinformation from the perspectives of a disinformation creator and its victim.</p>",
+			"endLinks":[
+				"<a href='https://www.sinchew.com.my/content/content_2214185.html' target='_blank'>染疫假消息影响生意‧峇株花园小贩中心冷清清 (Fake Covid-19 news affects business at Taman Batu Pahat hawker center)</a>",
+				"<a href='https://news.mit.edu/2018/study-twitter-false-news-travels-faster-true-stories-0308' target='_blank'>Study: On Twitter, false news travels faster than true stories</a>",
+				"<a href='https://www.bernama.com/en/general/news_covid-19.php?id=1869002' target='_blank'>COVID-19: Woman nabbed for spreading fake news on supermarket closure</a>",
+				"<a href='https://coconuts.co/kl/news/malaysia-man-criticized-after-naming-black-man-number-one-suspect-in-us-shooting/' target='_blank'>Malaysia man criticized after naming Black man ‘number one suspect’ in US shooting</a>",
+			]
+		}
 	],
 	[
 		{
