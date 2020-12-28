@@ -1,14 +1,12 @@
 /*to hide the scrollbar for menu*/
 body, html {background:#000; -ms-scrollbar-base-color: #ffffff; scrollbar-face-color: #ffffff;}
 .panel::-webkit-scrollbar { display: none; }
-
 .container {
      max-width: 800px;
      background-image: url("../img/story-0/background.png");
      background-size: cover;
      background-position: center;
 }
-
 .scImg {
      background-image: url("");
      background-size: cover;
@@ -59,6 +57,7 @@ body, html {background:#000; -ms-scrollbar-base-color: #ffffff; scrollbar-face-c
 .scenarioBox {
      position: absolute;
      bottom:20px;
+     width: 100%;
 }
 .scenario {
      display:none;
@@ -82,6 +81,12 @@ body, html {background:#000; -ms-scrollbar-base-color: #ffffff; scrollbar-face-c
      display: none;
 }
 
+.endPanel .card, .endPanel li {
+     background:#fbcd57;
+}
+.share-icons {
+     color:#224374;
+}
 .share-icons {
      font-size: 3em;
 }
@@ -102,8 +107,6 @@ body, html {background:#000; -ms-scrollbar-base-color: #ffffff; scrollbar-face-c
 .byline {
      font-size: 16px; margin: 20px 0px;
 }
-
-
 
 .relatedStories {
      margin-top: 30px;

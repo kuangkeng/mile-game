@@ -2,7 +2,6 @@ var person,
     btnTitle,
     viewportWidth = $(window).width(),
     viewportHeight = $(window).height(),
-    scHeight = imgHeight + 60,
     imgHeight;
     
 var selectedData = [];
@@ -11,7 +10,7 @@ function init() {
   if (viewportWidth<500){
     imgHeight = viewportHeight*0.55;
   } else {
-    imgHeight = viewportHeight*0.7;
+    imgHeight = viewportHeight*0.67;
   }
   getUrl();
   console.log("person = " + person);
