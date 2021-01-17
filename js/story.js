@@ -97,6 +97,9 @@ function makeSc(btnTitle, scLast) {
         $('.btnOpt').css('display','none');
         $('.theEndBox').animate({opacity: 1}, 1000);
         $('.endPanel').fadeIn(1000);
+        $('html, body').animate({
+          scrollTop: $(".scImg").offset().top
+        }, 1000);
       }, 1000);
   } else {
     //if not the ending scenario, populate the button and change the scenario
