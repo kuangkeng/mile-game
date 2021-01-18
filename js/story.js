@@ -1,4 +1,4 @@
-var person,
+var storyNum,
     btnTitle,
     viewportWidth = $(window).width(),
     viewportHeight = $(window).height(),
@@ -13,8 +13,18 @@ function init() {
     imgHeight = viewportHeight*0.67;
   }
   getUrl();
-  console.log("person = " + person);
-  selectedData = dataset[person];
+
+  $('.character-box').click(function () {
+    console.log("clicked!");
+    var storyUrl = $(this).attr('id');
+    console.log("storyUrl = " + storyUrl);
+    var storyFullUrl = '../' + storyUrl + '.html';
+    console.log("storyFullUrl = " + storyFullUrl);
+    var win = window.open(storyFullUrl, '_self');  
+    win.focus();
+  });
+
+  selectedData = dataset[storyNum];
   $('.panel').css("height",viewportHeight + "px");
   $('.scImg').css("height",imgHeight + "px");
   $('.scImg').css('background-image','url('+ selectedData[0].img +')');
@@ -97,10 +107,13 @@ function makeSc(btnTitle, scLast) {
         $('.btnOpt').css('display','none');
         $('.theEndBox').animate({opacity: 1}, 1000);
         $('.endPanel').fadeIn(1000);
+      }, 1000);
+    setTimeout(function() 
+      {
         $('html, body').animate({
           scrollTop: $(".scImg").offset().top
         }, 1000);
-      }, 1000);
+      }, 3000);
   } else {
     //if not the ending scenario, populate the button and change the scenario
     makeBtn(); 
@@ -124,9 +137,7 @@ function makeSc(btnTitle, scLast) {
 
 //Function to get journey num from url
 function getUrl(){
-    var journeyNum = window.location.pathname.slice(-6,-5);
-    console.log("url = " + journeyNum);
-    person = journeyNum;
+    storyNum = window.location.pathname.slice(-6,-5);
 }
 
 // function facebook() {
