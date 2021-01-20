@@ -13,17 +13,6 @@ function init() {
     imgHeight = viewportHeight*0.67;
   }
   getUrl();
-
-  $('.character-box').click(function () {
-    console.log("clicked!");
-    var storyUrl = $(this).attr('id');
-    console.log("storyUrl = " + storyUrl);
-    var storyFullUrl = '../' + storyUrl + '.html';
-    console.log("storyFullUrl = " + storyFullUrl);
-    var win = window.open(storyFullUrl, '_self');  
-    win.focus();
-  });
-
   selectedData = dataset[storyNum];
   $('.panel').css("height",viewportHeight + "px");
   $('.scImg').css("height",imgHeight + "px");
